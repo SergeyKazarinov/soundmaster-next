@@ -1,0 +1,12 @@
+.sidebar {
+  border-radius: var(--border-radius);
+  background: var(--bg-base);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.activeLink {
+  color: red;
+}
