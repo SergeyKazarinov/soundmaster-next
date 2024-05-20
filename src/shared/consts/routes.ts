@@ -19,3 +19,14 @@ export const getRouteRussianCharts = () => '/russian-charts';
 export const getRouteDjRussianCharts = () => '/dj-russian-charts';
 export const getRouteWav = () => '/wav';
 export const getRouteBandcamAndVinyl = () => '/bandcamp';
+
+export const apiCategoryConfig = {
+  [getRouteReleases().slice(1)]: 'Releases',
+  [getRouteDjCharts().slice(1)]: 'dj-charts',
+  [getRouteMashUp().slice(1)]: 'mash-up',
+  [getRouteTop100().slice(1)]: 'top',
+  [getRouteRussianCharts().slice(1)]: 'Russian Charts',
+  [getRouteDjRussianCharts().slice(1)]: 'DJ Russian Charts',
+  [getRouteWav().slice(1)]: 'wav',
+  [getRouteBandcamAndVinyl().slice(1)]: 'Bandcamp & Vinyl',
+};

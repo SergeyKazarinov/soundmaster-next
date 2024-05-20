@@ -1,0 +1,21 @@
+.card {
+  border-radius: var(--border-radius);
+  padding: 12px;
+  transition: 0.3s;
+
+  &:hover {
+    box-shadow: #ffffff59 0 0 15px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  z-index: 1;
+}

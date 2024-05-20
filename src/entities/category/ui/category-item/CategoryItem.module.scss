@@ -1,0 +1,8 @@
+.categoryItem {
+  width: 200px;
+  height: 200px;
+  border: 1px solid var(--bg-base);
+  padding: 12px;
+  display: grid;
+  grid-template-rows: 1fr min-content min-content;
+}

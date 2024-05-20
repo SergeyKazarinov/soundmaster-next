@@ -1,3 +1,5 @@
+@import 'reset.scss';
+@import 'global.scss';
 @import 'variables.scss';
 
 :root {
@@ -13,22 +15,8 @@
   font-style: 53px;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--bg-around);
-  color: var(--text-base)
-}
+
 
 #root {
   width: 100%;
