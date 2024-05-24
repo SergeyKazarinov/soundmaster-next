@@ -1,8 +1,10 @@
-export const getQueryParams = (params: Record<string, string>) => {
-  const searchParams = new URLSearchParams(window.location.search);
+import { ISearchParams } from '@/shared/types/types';
+
+export const getQueryParams = (params: ISearchParams) => {
+  const searchParams = new URLSearchParams();
   Object.entries(params).forEach(([name, value]) => {
     if (value !== undefined) {
-      searchParams.set(name, value);
+      searchParams.set(name, String(value));
     }
   });
 

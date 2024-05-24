@@ -67,7 +67,10 @@ const Sidebar: FC<SidebarProps> = () => {
   const route = usePathname();
   const getNavLink = (navLinkItem: TNavLinkProps) => (
     <Link
-      href={navLinkItem.href}
+      href={{
+        pathname: String(navLinkItem.href),
+        query: { page: 1 },
+      }}
       key={String(navLinkItem.href)}
       className={classNames({ [styles.activeLink]: route === navLinkItem.href })}
     >

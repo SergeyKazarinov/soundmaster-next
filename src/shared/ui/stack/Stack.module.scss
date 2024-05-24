@@ -1,0 +1,64 @@
+$gaps: (
+  4: 4px,
+  8: 8px,
+  16: 16px,
+  24: 24px,
+  32: 32px
+);
+
+$justify: (
+  'justifyStart': 'start',
+  'justifyCenter': 'center',
+  'justifyEnd': 'center',
+  'justifyBetween': 'space-between'
+);
+
+$align: (
+  'alignStart': 'start',
+  'alignCenter': 'center',
+  'alignEnd': 'end'
+);
+
+$directions: (
+  'directionRow': 'row',
+  'directionColumn': 'column',
+);
+
+@each $name, $gap in $gaps {
+  .gap#{$name} {
+    gap: #{$gap};
+  }
+}
+
+@each $name, $property in $justify {
+  .#{$name} {
+    justify-content: #{$property};
+  }
+}
+
+@each $name, $property in $align {
+  .#{$name} {
+    align-items: #{$property};
+  }
+}
+
+@each $name, $property in $directions {
+  .#{$name} {
+    flex-direction: #{$property};
+  }
+}
+.flex {
+  display: flex;
+}
+
+.max {
+  width: 100%;
+}
+
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}

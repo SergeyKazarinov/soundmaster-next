@@ -1,0 +1,24 @@
+.card {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  padding: 8px;
+  border-radius: var(--border-radius);
+
+  &:hover {
+    box-shadow: var(--box-shadow-hover);
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: var(--border-radius);
+}
+
+.image {
+  border-radius: var(--border-radius);
+
+}

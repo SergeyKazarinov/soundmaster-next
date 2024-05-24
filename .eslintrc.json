@@ -10,7 +10,6 @@
 
   "rules": {
     "import/extensions": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "jsx-a11y/media-has-caption": "off",
     "no-underscore-dangle": "off",
     "react/function-component-definition": [
@@ -20,7 +19,10 @@
       }
     ],
     "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
     "no-shadow": "off",
     "import/order": "off",
     "simple-import-sort/imports": [

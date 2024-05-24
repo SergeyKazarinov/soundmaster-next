@@ -12,7 +12,12 @@ interface CategoryItemProps {
 }
 
 const CategoryItem: FC<CategoryItemProps> = ({ category, categoryPath }) => (
-  <Link href={`/${categoryPath}/${category.name}`}>
+  <Link
+    href={{
+      pathname: `/${categoryPath}/${category.name}`,
+      query: { page: 1 },
+    }}
+  >
     <CategoryCard title={category.name} imageUrl={category.imageURL} />
   </Link>
 );

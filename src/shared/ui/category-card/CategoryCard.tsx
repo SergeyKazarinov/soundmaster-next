@@ -13,7 +13,7 @@ const CategoryCard: FC<CategoryCardProps> = ({ imageUrl, title }) => (
     <div className={styles.imageWrapper}>
       <Image className={styles.image} src={imageUrl} alt={title} fill />
     </div>
-    <p>{title}</p>
+    <p className={styles.title}>{title}</p>
   </article>
 );
 
