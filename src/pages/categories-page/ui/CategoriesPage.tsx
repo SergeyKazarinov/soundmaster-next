@@ -4,6 +4,8 @@ import { CategoryList } from '@/entities/category';
 import { categoryAPI } from '@/shared/api/api';
 import { apiCategoryConfig } from '@/shared/consts/routes';
 import { ICategoryResolve, ISearchParams } from '@/shared/types/types';
+import { Stack } from '@/shared/ui/stack';
+import { Pagination } from '@/widgets/pagination';
 
 import styles from './CategoriesPage.module.scss';
 
@@ -25,9 +27,12 @@ const CategoriesPage: FC<CategoriesPageProps> = async ({ categoryPath, searchPar
   const categories = await categoryAPI<ICategoryResolve>({ category: categoryRoute, params: searchParams });
 
   return (
-    <div className={styles.page}>
+    <Stack tagName="section" className={styles.page} direction="column" gap="16" max align="center">
+      <Pagination activeNumber={Number(searchParams.page)} totalItems={categories.length} />
       <CategoryList categories={categories.data} categoryPath={categoryPath} />
-    </div>
+
+      <Pagination activeNumber={Number(searchParams.page)} totalItems={categories.length} />
+    </Stack>
   );
 };
 

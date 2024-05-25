@@ -4,7 +4,7 @@ import { FC, memo } from 'react';
 
 import { ISong } from '@/shared/types/types';
 import { SongCard } from '@/shared/ui/song-card';
-import Stack from '@/shared/ui/stack/Stack';
+import { Stack } from '@/shared/ui/stack';
 
 import styles from './SongsList.module.scss';
 

@@ -1,11 +1,12 @@
 'use client';
 
 import { FC, memo } from 'react';
+import classNames from 'classnames';
 import Image from 'next/image';
 
 import { getFullDate } from '@/shared/lib/date/getFullDate';
 
-import Stack from '../stack/Stack';
+import { Stack } from '../stack';
 
 import styles from './SongCard.module.scss';
 
@@ -15,14 +16,15 @@ interface SongCardProps {
   name: string;
   date: string;
   songUrl: string;
+  className?: string;
 }
 
-const SongCard: FC<SongCardProps> = ({ imageUrl, artist, name, date, songUrl }) => (
+const SongCard: FC<SongCardProps> = ({ imageUrl, artist, name, date, songUrl, className = '' }) => (
   // const handleClick = () => {
   //   downloadFile(songUrl, `${artist} - ${name}`);
   // };
 
-  <article className={styles.card}>
+  <article className={classNames(styles.card, className)}>
     <div className={styles.imageWrapper}>
       <Image src={imageUrl} fill alt={name} className={styles.image} />
     </div>
