@@ -4,7 +4,6 @@ import { FC, memo } from 'react';
 
 import { ISong } from '@/shared/types/types';
 import { Stack } from '@/shared/ui/stack';
-import { AudioPlayer } from '@/widgets/audio-player';
 
 import { SongCard } from '../song-card';
 
@@ -30,7 +29,6 @@ const SongsList: FC<SongsListProps> = ({ songs }) => {
   return (
     <Stack tagName="ul" direction="column" gap="16" max>
       {songsElement}
-      <AudioPlayer song={songs[0]} />
     </Stack>
   );
 };

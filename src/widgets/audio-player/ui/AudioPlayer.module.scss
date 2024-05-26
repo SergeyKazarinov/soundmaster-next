@@ -4,14 +4,14 @@
   left: 0;
   right: 0;
   padding: 16px 8px;
-  background: var(--bg-around);
-  z-index: var(--z-index-blocks);
   display: grid;
   gap: 8px;
-  grid-template-columns: 100px min-content 1fr 100px 100px;
+  grid-template-columns: 100px minmax(min-content, 500px) 1fr 50px;
   grid-template-areas:
-  'image info buttons volume close'
-  'image info time volume close';
+  'image info buttons close'
+  'image info time .';
+  z-index: var(--z-index-blocks);
+  backdrop-filter: blur(40px) brightness(0.4);
 }
 
 .imageWrapper {
@@ -22,16 +22,8 @@
 .songInfo {
   grid-area: info;
   text-wrap: nowrap;
-}
-
-.trackTitle {
-  color: var(--text-base);
-  font: var(--font-text);
-}
-
-.trackArtist {
-  font: var(--font-text);
-  color: var(--text-secondary);
+  width: 100%;
+  
 }
 
 .buttons {
@@ -148,7 +140,6 @@ $volumeLevel: 150px;
 
 .totalTime {
   flex-grow: 0;
-
 }
 
 .close {

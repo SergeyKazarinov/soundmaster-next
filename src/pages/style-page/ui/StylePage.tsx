@@ -1,11 +1,12 @@
 import { FC, memo } from 'react';
 
-import { SongsList } from '@/entities/songs';
 import { songsAPI } from '@/shared/api/api';
 import { ISearchParams, ISongsResolve } from '@/shared/types/types';
 import { Card } from '@/shared/ui/card';
 import { Stack } from '@/shared/ui/stack';
+import { AudioPlayer } from '@/widgets/audio-player';
 import { Pagination } from '@/widgets/pagination';
+import { SongsList } from '@/widgets/songs-list';
 
 interface StylePageProps {
   params: { category: string; style: string };
@@ -26,6 +27,7 @@ const StylePage: FC<StylePageProps> = async ({ params, searchParams }) => {
         <SongsList songs={songsResolve.data} />
         <Pagination activeNumber={Number(searchParams.page)} totalItems={songsResolve.length} />
       </Stack>
+      <AudioPlayer song={songsResolve.data[0]} />
     </Card>
   );
 };

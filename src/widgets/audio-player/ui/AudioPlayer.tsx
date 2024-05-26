@@ -6,8 +6,8 @@ import { MdSkipNext, MdSkipPrevious, MdVolumeUp } from 'react-icons/md';
 import classNames from 'classnames';
 import Image from 'next/image';
 
-// eslint-disable-next-line
-import { SongTitle } from '@/entities/songs';
+import { SongTitle } from '@/entities/song-title';
+import { DownloadButton } from '@/features/download-button';
 import { ISong } from '@/shared/types/types';
 import { Stack } from '@/shared/ui/stack';
 
@@ -18,7 +18,7 @@ interface AudioPlayerProps {
 }
 
 const AudioPlayer: FC<AudioPlayerProps> = ({ song }) => {
-  const [isVisibleVolume, setIsVisibleVolume] = useState(true);
+  const [isVisibleVolume, setIsVisibleVolume] = useState(false);
 
   const handleVolumeClick = useCallback(() => {
     setIsVisibleVolume((state) => !state);
@@ -31,7 +31,7 @@ const AudioPlayer: FC<AudioPlayerProps> = ({ song }) => {
   return (
     <div className={styles.player}>
       <div className={styles.imageWrapper}>
-        <Image src={song?.imageURL} alt={song?.name} fill />
+        <Image src={song.imageURL} alt={song.name} fill />
       </div>
       <SongTitle className={styles.songInfo} name={song.name} artist={song.artist} />
       <Stack justify="center" className={styles.buttons}>
@@ -52,7 +52,9 @@ const AudioPlayer: FC<AudioPlayerProps> = ({ song }) => {
         <IoMdPlayCircle size={50} />
         {/* <MdPauseCircle size={50} /> */}
         <MdSkipNext size={32} />
-        <IoMdCloudDownload size={24} />
+        <DownloadButton url={song.songUrl} type="link">
+          <IoMdCloudDownload size={24} />
+        </DownloadButton>
       </Stack>
       <Stack className={styles.time} max align="center">
         <span className={styles.currentTime}>0:00</span>

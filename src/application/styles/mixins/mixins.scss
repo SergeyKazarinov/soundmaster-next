@@ -1,6 +1,6 @@
-@mixin imageWrapper {
+@mixin imageWrapper($width: 100px, $height: 100px) {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: $width;
+  height: $height;
   border-radius: var(--border-radius);
 }
