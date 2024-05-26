@@ -1,0 +1,51 @@
+.title, .text {
+  color: var(--text-base)
+}
+.error {
+  .title, .text {
+    color: var(--text-error)
+  }
+}
+
+.accent {
+  .title, .text {
+    color: var(--text-bright-accent)
+  }
+}
+
+$aligns: (
+  left: 'left',
+  right: 'right',
+  center: 'center',
+);
+
+$sizes: (
+  'size-h1': var(--font-h1),
+  'size-h2': var(--font-h2),
+  'size-h3': var(--font-h3),
+  'size-h4': var(--font-h4),
+);
+
+@each $property, $value in $aligns {
+  .#{$property} {
+    text-align: #{$value};
+  }
+}
+
+@each $size, $font in $sizes {
+  .#{$size} {
+    .title {
+      font: #{$font}
+    }
+
+    .text {
+      font: var(--font-text)
+    }
+  }
+}
+
+.bold {
+  .title, .text {
+    font-weight: 700;
+  }
+}

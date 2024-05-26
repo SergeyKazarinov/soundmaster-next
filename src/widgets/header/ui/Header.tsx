@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
 
-import styles from './Header.module.scss';
+import { Card } from '@/shared/ui/card';
 
 interface HeaderProps {}
 
-const Header: FC<HeaderProps> = () => <div className={styles.header}>Header</div>;
+const Header: FC<HeaderProps> = () => <Card>Header</Card>;
 
 export default memo(Header);

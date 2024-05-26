@@ -1,11 +1,49 @@
 :root {
   --header-height: 64px;
   --border-radius: 8px;
+
+  // color
   --bg-base: #121212;
   --bg-around: #000;
+  --bg-elevated-base: #242424;
+  --bg-elevated-highlight: #2a2a2a;
   --text-base: #fff;
   --text-secondary: #a7a7a7;
+  --text-bright-accent: #1ed760;
+  --text-error: #ff0000; 
+  --tracker-color: #36e2ec;
+  --tracker-buffer-color: #87dfe4;
+  --color-positive: #1ed760;
 
 
   --box-shadow-hover: #ffffff59 0 0 15px;
+
+  // z-index
+  --z-index-blocks: 10;
+  --z-index-input-range: 99999;
+
+  // fonts
+
+  --font-family-main: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-size-h1: 96px;
+  --font-line-h1: 108px;
+  --font-h1: var(--font-size-h1) / var(--font-line-h1) var(--font-family-main);
+  --font-size-h2: 72px;
+  --font-line-h2: 80px;
+  --font-h2: var(--font-size-h2) / var(--font-line-h2) var(--font-family-main);
+  --font-size-h3: 44px;
+  --font-line-h3: 52px;
+  --font-h3: var(--font-size-h3) / var(--font-line-h3) var(--font-family-main);
+  --font-size-h4: 36px;
+  --font-line-h4: 44px;
+  --font-h3: var(--font-size-h4) / var(--font-line-h4) var(--font-family-main);
+  --font-size-navigation: 24px;
+  --font-line-navigation: 32px;
+  --font-navigator: var(--font-size-navigation) / var(--font-line-navigation) var(--font-family-main);
+  --font-size-links: 20px;
+  --font-line-links: 24px;
+  --font-links: var(--font-size-links) / var(--font-line-links) var(--font-family-main);
+  --font-size-text: 20px;
+  --font-line-text: 32px;
+  --font-text: var(--font-size-text) / var(--font-line-text) var(--font-family-main);
 }

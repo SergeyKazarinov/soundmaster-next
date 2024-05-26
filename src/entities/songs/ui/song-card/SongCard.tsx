@@ -6,7 +6,8 @@ import Image from 'next/image';
 
 import { getFullDate } from '@/shared/lib/date/getFullDate';
 
-import { Stack } from '../stack';
+import { Stack } from '../../../../shared/ui/stack';
+import SongTitle from '../song-title/SongTitle';
 
 import styles from './SongCard.module.scss';
 
@@ -28,10 +29,7 @@ const SongCard: FC<SongCardProps> = ({ imageUrl, artist, name, date, songUrl, cl
     <div className={styles.imageWrapper}>
       <Image src={imageUrl} fill alt={name} className={styles.image} />
     </div>
-    <Stack direction="column" justify="start" align="start">
-      <p>{name}</p>
-      <p>{artist}</p>
-    </Stack>
+    <SongTitle name={name} artist={artist} />
     <Stack direction="column" align="end">
       <p>{getFullDate(date)}</p>
       <a download href={songUrl} target="_blank" rel="noreferrer">

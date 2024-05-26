@@ -17,6 +17,7 @@ import {
   getRouteWav,
   RoutingEnum,
 } from '@/shared/consts/routes';
+import { Card } from '@/shared/ui/card';
 
 import styles from './Sidebar.module.scss';
 
@@ -78,7 +79,11 @@ const Sidebar: FC<SidebarProps> = () => {
     </Link>
   );
 
-  return <nav className={styles.sidebar}>{Object.values(navLinkConfig).map(getNavLink)}</nav>;
+  return (
+    <Card tagName="nav" className={styles.sidebar}>
+      {Object.values(navLinkConfig).map(getNavLink)}
+    </Card>
+  );
 };
 
 export default memo(Sidebar);

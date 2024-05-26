@@ -3,6 +3,7 @@ import { FC, memo } from 'react';
 import { SongsList } from '@/entities/songs';
 import { songsAPI } from '@/shared/api/api';
 import { ISearchParams, ISongsResolve } from '@/shared/types/types';
+import { Card } from '@/shared/ui/card';
 import { Stack } from '@/shared/ui/stack';
 import { Pagination } from '@/widgets/pagination';
 
@@ -19,11 +20,13 @@ const StylePage: FC<StylePageProps> = async ({ params, searchParams }) => {
   });
 
   return (
-    <Stack tagName="section" direction="column" gap="16" max align="center">
-      <Pagination activeNumber={Number(searchParams.page)} totalItems={songsResolve.length} />
-      <SongsList songs={songsResolve.data} />
-      <Pagination activeNumber={Number(searchParams.page)} totalItems={songsResolve.length} />
-    </Stack>
+    <Card tagName="section">
+      <Stack tagName="section" direction="column" gap="16" max align="center">
+        <Pagination activeNumber={Number(searchParams.page)} totalItems={songsResolve.length} />
+        <SongsList songs={songsResolve.data} />
+        <Pagination activeNumber={Number(searchParams.page)} totalItems={songsResolve.length} />
+      </Stack>
+    </Card>
   );
 };
 

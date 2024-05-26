@@ -1,9 +1,9 @@
+@import 'variables.scss';
 @import 'reset.scss';
 @import 'global.scss';
-@import 'variables.scss';
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family-main);
   line-height: 1.5;
   font-weight: 400;
 
