@@ -1,8 +1,8 @@
 'use client';
 
-import { FC, memo, useCallback, useState } from 'react';
+import { FC, memo, useCallback, useEffect, useState } from 'react';
 import { IoMdClose, IoMdCloudDownload, IoMdPlayCircle } from 'react-icons/io';
-import { MdSkipNext, MdSkipPrevious, MdVolumeUp } from 'react-icons/md';
+import { MdPauseCircle, MdSkipNext, MdSkipPrevious, MdVolumeUp } from 'react-icons/md';
 import classNames from 'classnames';
 import Image from 'next/image';
 
@@ -14,22 +14,40 @@ import { Stack } from '@/shared/ui/stack';
 import styles from './AudioPlayer.module.scss';
 
 interface AudioPlayerProps {
-  song?: ISong;
+  song?: ISong | null;
+  onNextTrack: () => void;
+  onPrevTrack: () => void;
 }
 
-const AudioPlayer: FC<AudioPlayerProps> = ({ song }) => {
+const AudioPlayer: FC<AudioPlayerProps> = ({ song, onNextTrack, onPrevTrack }) => {
   const [isVisibleVolume, setIsVisibleVolume] = useState(false);
+  const [isVisiblePlayer, setIsVisiblePlayer] = useState(false);
+  const [isPlay, setIsPlay] = useState(false);
+
+  const handlePlayButton = () => {
+    setIsPlay((prev) => !prev);
+  };
 
   const handleVolumeClick = useCallback(() => {
     setIsVisibleVolume((state) => !state);
   }, []);
+
+  const handleClose = () => {
+    setIsVisiblePlayer(false);
+  };
+
+  useEffect(() => {
+    if (song && !isVisiblePlayer) {
+      setIsVisiblePlayer(true);
+    }
+  }, [song]);
 
   if (!song) {
     return null;
   }
 
   return (
-    <div className={styles.player}>
+    <section className={classNames(styles.player, { [styles.active]: isVisiblePlayer })}>
       <div className={styles.imageWrapper}>
         <Image src={song.imageURL} alt={song.name} fill />
       </div>
@@ -48,10 +66,13 @@ const AudioPlayer: FC<AudioPlayerProps> = ({ song }) => {
           </div>
         </div>
         {/* <MdVolumeOff /> */}
-        <MdSkipPrevious size={32} />
-        <IoMdPlayCircle size={50} />
-        {/* <MdPauseCircle size={50} /> */}
-        <MdSkipNext size={32} />
+        <MdSkipPrevious size={32} onClick={onPrevTrack} />
+        {isPlay ? (
+          <MdPauseCircle size={50} onClick={handlePlayButton} />
+        ) : (
+          <IoMdPlayCircle size={50} onClick={handlePlayButton} />
+        )}
+        <MdSkipNext size={32} onClick={onNextTrack} />
         <DownloadButton url={song.songUrl} type="link">
           <IoMdCloudDownload size={24} />
         </DownloadButton>
@@ -66,8 +87,8 @@ const AudioPlayer: FC<AudioPlayerProps> = ({ song }) => {
         <span className={styles.totalTime}>0:00</span>
       </Stack>
       {/* <div className={styles.volume}>volume</div> */}
-      <IoMdClose size={24} className={styles.close} />
-    </div>
+      <IoMdClose size={24} className={styles.close} onClick={handleClose} />
+    </section>
   );
 };
 

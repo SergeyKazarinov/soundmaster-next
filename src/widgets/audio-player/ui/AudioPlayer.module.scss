@@ -12,7 +12,15 @@
   'image info time .';
   z-index: var(--z-index-blocks);
   backdrop-filter: blur(40px) brightness(0.4);
+  transform: translateY(100%);
+  transition: 0.5s;
+
+  &.active {
+  transform: translateY(0);
+  }
 }
+
+
 
 .imageWrapper {
   grid-area: image;
@@ -23,12 +31,12 @@
   grid-area: info;
   text-wrap: nowrap;
   width: 100%;
-  
+
 }
 
 .buttons {
   grid-area: buttons;
-  height: 50px;
+  align-self: center;
 }
 
 

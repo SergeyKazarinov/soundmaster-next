@@ -48,13 +48,9 @@ const TextComponent: FC<TextProps> = ({
   };
 
   return (
-    <div className={classNames(s.textComponent, mods, [className, s[variant], s[align], s[size]])}>
+    <div className={classNames(s.textComponent, mods, [className, s[variant], s[align], s[size]])} style={style}>
       {title && <HeaderTag className={s.title}>{title}</HeaderTag>}
-      {text && (
-        <p className={s.text} style={style}>
-          {text}
-        </p>
-      )}
+      {text && <p className={s.text}>{text}</p>}
     </div>
   );
 };
