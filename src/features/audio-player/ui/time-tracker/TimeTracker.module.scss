@@ -1,0 +1,45 @@
+.currentTime {
+  flex-grow: 0;
+}
+
+.range {
+  position: relative;
+  height: 2px;
+  background: var(--bg-elevated-highlight);
+  flex-grow: 1;
+  margin: 0 12px;
+}
+
+.inputRange {
+  position: absolute;
+  top: -7px;
+  left: 0;
+  cursor: pointer;
+  width: 100%;
+  z-index: var(--z-index-input-range);
+  opacity: 0;
+}
+
+.range2 {
+  position: absolute;
+  top: 0;
+  background: var(--tracker-color);
+  width: 50%;
+  height: 100%;
+  transition: 1s linear;
+}
+
+.dot {
+  position: absolute;
+  left: 0;
+  top: -4.5px;
+  width: 10px;
+  height: 10px;
+  background: var(--tracker-color);
+  border-radius: 50%;
+  transition: 1s linear;
+}
+
+.totalTime {
+  flex-grow: 0;
+}

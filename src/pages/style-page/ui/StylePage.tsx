@@ -17,7 +17,7 @@ interface StylePageProps {
 }
 
 const StylePage: FC<StylePageProps> = ({ songsResolve, searchParams }) => {
-  const { setSongs, songs, setSelectedSong, selectedSong, setNextTrack, setPrevTrack } = audioPlayerStore;
+  const { setSongs, songs, setSelectedSong, selectedSong } = audioPlayerStore;
 
   useEffect(() => {
     if (songsResolve) {
@@ -34,11 +34,11 @@ const StylePage: FC<StylePageProps> = ({ songsResolve, searchParams }) => {
       <Card tagName="section">
         <Stack direction="column" gap="16" max align="center">
           <Pagination activeNumber={Number(searchParams.page)} totalItems={songsResolve.length} />
-          <SongsList songs={songs} onClick={handleSelectSong} />
+          <SongsList songs={songs} onClick={handleSelectSong} selectedSong={selectedSong} />
           <Pagination activeNumber={Number(searchParams.page)} totalItems={songsResolve.length} />
         </Stack>
       </Card>
-      <AudioPlayer song={selectedSong} onNextTrack={setNextTrack} onPrevTrack={setPrevTrack} />
+      <AudioPlayer song={selectedSong} />
     </>
   );
 };

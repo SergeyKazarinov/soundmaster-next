@@ -47,6 +47,7 @@ class AudioPlayerStore {
 
   setPrevTrack = () => {
     const findIndex = this.getSelectedIndex();
+    console.log(findIndex);
     if (findIndex <= 0) {
       [this.selectedSong] = [...this.songs].reverse();
     } else {

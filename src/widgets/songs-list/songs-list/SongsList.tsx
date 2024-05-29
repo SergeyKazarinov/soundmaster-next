@@ -11,13 +11,13 @@ import styles from './SongsList.module.scss';
 
 interface SongsListProps {
   songs: ISong[];
+  selectedSong: ISong | null;
   onClick: (song: ISong) => void;
 }
 
-const SongsList: FC<SongsListProps> = ({ songs, onClick }) => {
-  const songsElement = songs?.map((song, index) => (
+const SongsList: FC<SongsListProps> = ({ songs, selectedSong, onClick }) => {
+  const songsElement = songs?.map((song) => (
     <li key={song._id} className={styles.songItem}>
-      {index + 1}
       <SongCard
         artist={song.artist}
         imageUrl={song.imageURL}
@@ -25,6 +25,7 @@ const SongsList: FC<SongsListProps> = ({ songs, onClick }) => {
         songUrl={song.songUrl}
         date={song.createdAt}
         song={song}
+        selectedSong={selectedSong}
         onClick={onClick}
       />
     </li>

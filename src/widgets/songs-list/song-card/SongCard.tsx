@@ -20,15 +20,31 @@ interface SongCardProps {
   songUrl: string;
   className?: string;
   song: ISong;
+  selectedSong: ISong | null;
   onClick: (song: ISong) => void;
 }
 
-const SongCard: FC<SongCardProps> = ({ imageUrl, artist, name, date, songUrl, className = '', song, onClick }) => {
+const SongCard: FC<SongCardProps> = ({
+  imageUrl,
+  artist,
+  name,
+  date,
+  songUrl,
+  className = '',
+  song,
+  onClick,
+  selectedSong,
+}) => {
+  const isSelectedSong = song._id === selectedSong?._id;
   const handleClick = () => {
     onClick(song);
   };
   return (
-    <article className={classNames(styles.card, className)} onClick={handleClick} aria-hidden="true">
+    <article
+      className={classNames(styles.card, className, { [styles.selected]: isSelectedSong })}
+      onClick={handleClick}
+      aria-hidden="true"
+    >
       <div className={styles.imageWrapper}>
         <Image src={imageUrl} fill alt={name} className={styles.image} />
       </div>

@@ -6,7 +6,7 @@
   padding: 8px;
   border-radius: var(--border-radius);
 
-  &:hover {
+  &:hover, &.selected {
     background: var(--bg-elevated-highlight);
     box-shadow: var(--box-shadow-hover);
     transition: 0.2s;

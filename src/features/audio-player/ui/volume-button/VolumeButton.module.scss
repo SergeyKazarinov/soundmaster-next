@@ -1,0 +1,60 @@
+.volume {
+  // grid-area: volume;
+  position: relative;
+  cursor: pointer;
+}
+
+$volumeLevel: 150px;
+
+.volumeRange {
+  position: absolute;
+  bottom: 50px;
+  left: -3px;
+  height: $volumeLevel;
+  width: 7px;
+  border-radius: 4px;
+  background: var(--bg-elevated-highlight);
+  margin: 0 12px;
+  opacity: 0;
+  transition: 0.1s;
+}
+
+.activeVolume {
+  opacity: 1;
+}
+
+.activeIcon {
+  fill: var(--tracker-color);
+}
+
+.inputVolumeRange {
+  position: absolute;
+  bottom: 68px;
+  left: -72px;
+  transform: rotate(-90deg);
+  cursor: pointer;
+  width: $volumeLevel;
+  z-index: var(--z-index-input-range);
+  opacity: 0;
+}
+
+.volumeRangeActive {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  border-radius: 4px;
+  background: var(--tracker-color);
+}
+
+.dotVolume {
+  position: absolute;
+  left: -4px;
+  bottom: -5.5px;
+  width: 15px;
+  height: 15px;
+  background: var(--tracker-color);
+  border-radius: 50%;
+  transition: 1s linear;
+}
