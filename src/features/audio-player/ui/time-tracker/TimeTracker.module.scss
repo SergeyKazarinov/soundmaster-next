@@ -25,29 +25,29 @@
   opacity: 0;
 }
 
-.range2, .buffer {
+.progressBar, .bufferBar {
   position: absolute;
   top: 0;
   height: 100%;
   transition: 0.2s linear;
 }
 
-.range2 {
+.progressBar {
   width: var(--progress-bar);
   background: var(--tracker-color);
   box-shadow: 0 0 5px 1px rgba(135,223,228,1);
   z-index: 3
 }
 
-.buffer {
+.bufferBar {
   width: var(--buffer-bar);
   background: var(--buffer-color);
   z-index: 2;
 }
 
-.dot {
+.progressDot {
   position: absolute;
-  left: var(--progress-bar);;
+  left: var(--progress-bar);
   top: -4.5px;
   width: 10px;
   height: 10px;

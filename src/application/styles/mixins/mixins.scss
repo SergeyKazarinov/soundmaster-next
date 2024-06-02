@@ -4,3 +4,12 @@
   height: $height;
   border-radius: var(--border-radius);
 }
+
+@mixin hoverButton {
+  color: var(--tracker-color);
+  transform: scale(1.1);
+}
+
+@mixin clickButton {
+  transform: scale(0.9);
+}

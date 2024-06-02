@@ -7,10 +7,9 @@ export const downloadFile = (url: string, nameFile: string) => {
       return response.blob().then((blob) => {
         const contentType = response.headers.get('content-type') || 'audio/mpeg';
         const newBlob = new Blob([blob], { type: contentType });
-
         const link = document.createElement('a');
         link.href = URL.createObjectURL(newBlob);
-        link.download = nameFile;
+        link.download = nameFile.replace('.', '');
 
         link.click();
 

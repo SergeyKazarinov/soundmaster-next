@@ -22,6 +22,8 @@ class AudioPlayerStore {
 
   bufferBar: number;
 
+  volume: number;
+
   constructor() {
     makeObservable(this, {
       songs: observable,
@@ -31,6 +33,7 @@ class AudioPlayerStore {
       totalTime: observable,
       progressBar: observable,
       bufferBar: observable,
+      volume: observable,
       getSongs: computed,
       getSelectedSongs: computed,
       getIsPlay: computed,
@@ -42,6 +45,7 @@ class AudioPlayerStore {
       playTrack: action,
       closePlayer: action,
       changeCurrentTime: action,
+      setVolume: action,
     });
     this.songs = [];
     this.selectedSong = null;
@@ -51,6 +55,7 @@ class AudioPlayerStore {
     this.totalTime = DEFAULT_TIME;
     this.progressBar = 0;
     this.bufferBar = 0;
+    this.volume = 100;
   }
 
   get getSongs() {
@@ -115,9 +120,10 @@ class AudioPlayerStore {
     } else {
       this.audioTrack = new Audio(song.songUrl);
       this.audioTrack.preload = 'none';
+      this.setVolume(100);
       this.audioTrack.ontimeupdate = this.setCurrentTime;
       this.audioTrack.onloadeddata = this.setTotalTime;
-      // this.audioTrack.oncanplay = this.audioTrack.play;
+      this.audioTrack.onended = this.setNextTrack;
       this.audioTrack.addEventListener('progress', this.setBufferBar);
     }
     this.audioTrack.load();
@@ -166,6 +172,7 @@ class AudioPlayerStore {
     this.audioTrack?.pause();
     this.audioTrack = null;
     this.selectedSong = null;
+    this.isPlay = false;
   };
 
   pauseTrack = () => {
@@ -186,6 +193,13 @@ class AudioPlayerStore {
   changeCurrentTime = (value: number) => {
     if (this.audioTrack) {
       this.audioTrack.currentTime = (value * this.audioTrack.duration) / 100;
+    }
+  };
+
+  setVolume = (value: number) => {
+    if (this.audioTrack) {
+      this.audioTrack.volume = value / 100;
+      this.volume = value;
     }
   };
 }

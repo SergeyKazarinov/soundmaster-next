@@ -1,0 +1,10 @@
+.button {
+  transition: 0.3s;
+  &:hover {
+    @include hoverButton;
+  }
+
+  &:active {
+    @include clickButton;
+  }
+}

@@ -1,9 +1,10 @@
 'use client';
 
-import { ChangeEvent, CSSProperties, FC } from 'react';
+import { ChangeEvent, FC } from 'react';
 import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 
+import { CSSVariables } from '@/shared/types/types';
 import { Stack } from '@/shared/ui/stack';
 
 import audioPlayerStore from '../../model/store/audioPlayerStore';
@@ -14,7 +15,6 @@ interface TimeTrackerProps {
   className?: string;
 }
 
-type CSSVariables = CSSProperties & { [key: string]: string | number };
 const TimeTracker: FC<TimeTrackerProps> = ({ className = '' }) => {
   const { currentTime, totalTime, progressBar, changeCurrentTime, bufferBar } = audioPlayerStore;
   const style: CSSVariables = { '--progress-bar': `${progressBar}%`, '--buffer-bar': `${bufferBar}%` };
@@ -35,9 +35,9 @@ const TimeTracker: FC<TimeTrackerProps> = ({ className = '' }) => {
           value={progressBar}
           onChange={handleChange}
         />
-        <div className={styles.range2} />
-        <div className={styles.buffer} />
-        <div className={styles.dot} />
+        <div className={styles.progressBar} />
+        <div className={styles.bufferBar} />
+        <div className={styles.progressDot} />
       </div>
       <span className={styles.totalTime}>{totalTime}</span>
     </Stack>

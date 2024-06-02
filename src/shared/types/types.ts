@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 export interface ICategory {
   _id: string;
   name: string;
@@ -38,3 +40,5 @@ export interface ISearchParams {
 }
 
 export type TMods = Record<string, boolean | string | undefined>;
+
+export type CSSVariables = CSSProperties & { [key: string]: string | number };
