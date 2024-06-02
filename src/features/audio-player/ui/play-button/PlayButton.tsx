@@ -1,18 +1,24 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { IoMdPlayCircle } from 'react-icons/io';
 import { MdPauseCircle } from 'react-icons/md';
 import { observer } from 'mobx-react-lite';
 
+import audioPlayerStore from '../../model/store/audioPlayerStore';
+
 interface NextButtonProps {}
 
 const PlayButton: FC<NextButtonProps> = () => {
-  const [isPlay, setIsPlay] = useState(false);
-
+  const { pauseTrack, playTrack, isPlay } = audioPlayerStore;
   const handlePlayButton = () => {
-    setIsPlay((prev) => !prev);
+    if (isPlay) {
+      pauseTrack();
+    } else {
+      playTrack();
+    }
   };
+
   return (
     <>
       {isPlay && <MdPauseCircle className="pointer" size={50} onClick={handlePlayButton} />}

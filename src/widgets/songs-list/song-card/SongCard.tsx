@@ -41,7 +41,9 @@ const SongCard: FC<SongCardProps> = ({
   };
   return (
     <article
-      className={classNames(styles.card, className, { [styles.selected]: isSelectedSong })}
+      className={classNames(styles.card, className, {
+        [styles.selected]: isSelectedSong,
+      })}
       onClick={handleClick}
       aria-hidden="true"
     >

@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { AudioPlayer } from '@/features/audio-player';
 import { Header } from '@/widgets/header';
 import { Sidebar } from '@/widgets/sidebar';
 
@@ -31,6 +32,7 @@ const RootLayout = ({
           <Sidebar />
         </nav>
         <div className={styles.content}>{children}</div>
+        <AudioPlayer />
       </main>
     </body>
   </html>

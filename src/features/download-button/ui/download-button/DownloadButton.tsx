@@ -1,4 +1,4 @@
-import { FC, memo, ReactNode } from 'react';
+import { FC, memo, MouseEvent, ReactNode } from 'react';
 
 import { downloadFile } from '../../api/downloadFile';
 
@@ -14,7 +14,8 @@ interface DownloadButtonProps {
 }
 
 const DownloadButton: FC<DownloadButtonProps> = ({ children = 'скачать', url, type = 'button', fileName = 'file' }) => {
-  const handleClick = () => {
+  const handleClick = (e: MouseEvent) => {
+    e.stopPropagation();
     downloadFile(url, fileName);
   };
 
@@ -26,7 +27,7 @@ const DownloadButton: FC<DownloadButtonProps> = ({ children = 'скачать', 
     );
   }
   return (
-    <button type="button" onClick={handleClick}>
+    <button type="button" onClick={(e) => handleClick(e)}>
       {children}
     </button>
   );
