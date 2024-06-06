@@ -3,21 +3,20 @@ import classNames from 'classnames';
 
 import s from './TextComponent.module.scss';
 
-export type TTextVariant = 'primary' | 'accent' | 'error';
+type TTextAlignVariant = 'right' | 'center' | 'left';
 
-export type TTextAlignVariant = 'right' | 'center' | 'left';
+type TTextSize = 'size_h1' | 'size_h2' | 'size_h3' | 'size_h4' | 'navigator' | 'text';
 
-export type TTextSize = 'size_h1' | 'size_h2' | 'size_h3' | 'size_h4' | 'navigator' | 'text';
+type TTextColor = 'base' | 'secondary' | 'error' | 'bright-accent';
 
 interface TextProps {
   className?: string;
-  title?: string;
   text?: string;
-  variant?: TTextVariant;
   align?: TTextAlignVariant;
   size?: TTextSize;
   bold?: boolean;
   style?: CSSProperties;
+  color?: TTextColor;
 }
 
 type THeaderTag = 'h1' | 'h2' | 'h3' | 'h4' | 'p';
@@ -33,13 +32,12 @@ const mapSizeToHeaderTag: Record<TTextSize, THeaderTag> = {
 
 const TextComponent: FC<TextProps> = ({
   className,
-  title,
   text,
-  variant = 'primary',
   align = 'left',
   size = 'size_h2',
   bold,
   style = {},
+  color = 'base',
 }) => {
   const HeaderTag = mapSizeToHeaderTag[size];
 
@@ -48,10 +46,9 @@ const TextComponent: FC<TextProps> = ({
   };
 
   return (
-    <div className={classNames(s.textComponent, mods, [className, s[variant], s[align], s[size]])} style={style}>
-      {title && <HeaderTag className={s.title}>{title}</HeaderTag>}
-      {text && <p className={s.text}>{text}</p>}
-    </div>
+    <HeaderTag className={classNames(s.textComponent, mods, className, s[align], s[color], s[size])} style={style}>
+      {text}
+    </HeaderTag>
   );
 };
 

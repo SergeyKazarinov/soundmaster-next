@@ -8,20 +8,21 @@
   gap: 8px;
   grid-template-columns: 100px minmax(min-content, 600px) 1fr 50px;
   grid-template-areas:
-  'image info buttons close'
-  'image info time .';
+    'image info buttons close'
+    'image info time .';
   z-index: var(--z-index-blocks);
   backdrop-filter: blur(40px) brightness(0.4);
   transform: translateY(100%);
   transition: 0.5s;
 
   &.active {
-  transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
 .imageWrapper {
   grid-area: image;
+
   @include imageWrapper;
 }
 

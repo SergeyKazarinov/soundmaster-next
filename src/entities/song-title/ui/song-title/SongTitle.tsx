@@ -1,8 +1,7 @@
 import { FC, memo } from 'react';
 
 import { Stack } from '@/shared/ui/stack';
-
-import styles from './SongTitle.module.scss';
+import { TextComponent } from '@/shared/ui/text-component';
 
 interface SongTitleProps {
   name: string;
@@ -12,8 +11,8 @@ interface SongTitleProps {
 
 const SongTitle: FC<SongTitleProps> = ({ name, artist, className }) => (
   <Stack direction="column" gap="4" align="start" className={className}>
-    <p className={styles.trackName}>{name}</p>
-    <p className={styles.trackArtist}>{artist}</p>
+    <TextComponent size="text" text={name} />
+    <TextComponent size="text" text={artist} color="secondary" />
   </Stack>
 );
 

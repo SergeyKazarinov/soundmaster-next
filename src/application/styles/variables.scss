@@ -1,50 +1,108 @@
-:root {
-  --header-height: 64px;
-  --border-radius: 8px;
 
-  // color
-  --bg-base: #121212;
-  --bg-around: #000;
-  --bg-elevated-base: #242424;
-  --bg-elevated-highlight: #2a2a2a;
-  --text-base: #fff;
-  --text-secondary: #a7a7a7;
-  --text-bright-accent: #1ed760;
-  --text-error: #ff0000;
-  --tracker-color: #36e2ec;
-  --buffer-color: rgba(54, 226, 236, 0.3);
-  --tracker-buffer-color: #87dfe4;
-  --color-positive: #1ed760;
+  :root {
+    --header-height: 64px;
+    --border-radius: 8px;
+    --bg-around: #000;
+    --bg-elevated-base: #242424;
+    --bg-elevated-highlight: #2a2a2a;
+    --text-base: #fff;
+    --text-secondary: #a7a7a7;
+    --text-bright-accent: #1ed760;
+    --text-error: #f00;
+    --tracker-color: #36e2ec;
+    --buffer-color: rgb(54 226 236 / 30%);
+    --tracker-buffer-color: #87dfe4;
+    --color-positive: #1ed760;
+    --box-shadow-hover: #ffffff59 0 0 15px;
+    --z-index-input-range: 99999;
+    // fonts
+    --font-family-main: 'Geometria', system-ui, avenir, helvetica, arial, sans-serif;
+    --font-size-digits: 120px;
+    --font-line-digits: 120px;
+    --font-digits: 500 var(--font-size-digits) / var(--font-line-digits) var(--font-family-main);
+    --font-size-big: 96px;
+    --font-line-big: 104px;
+    --font-big: 700 var(--font-size-big) / var(--font-line-big) var(--font-family-main);--font-big
+    --font-size-h1: 96px;
+    --font-line-h1: 108px;
+    --font-h1: 500 var(--font-size-h1) / var(--font-line-h1) var(--font-family-main);
+    --font-size-h2: 72px;
+    --font-line-h2: 80px;
+    --font-h2: 500 var(--font-size-h2) / var(--font-line-h2) var(--font-family-main);
+    --font-size-h3: 40px;
+    --font-line-h3: 48px;
+    --font-h3: 500 var(--font-size-h3) / var(--font-line-h3) var(--font-family-main);
+    --font-size-h4: 36px;
+    --font-line-h4: 44px;
+    --font-h4: 500 var(--font-size-h4) / var(--font-line-h4) var(--font-family-main);
+    --font-size-navigation: 24px;
+    --font-line-navigation: 32px;
+    --font-navigator: 500 var(--font-size-navigation) / var(--font-line-navigation) var(--font-family-main);
+    --font-size-links: 20px;
+    --font-line-links: 32px;
+    --font-links: 500 var(--font-size-links) / var(--font-line-links) var(--font-family-main);
+    --font-size-text: 20px;
+    --font-line-text: 32px;
+    --font-text: 400 var(--font-size-text) / var(--font-line-text) var(--font-family-main);
+    --font-text-bold: 500 var(--font-size-text) / var(--font-line-text) var(--font-family-main);
+    --font-size-caption: 16px;
+    --font-line-caption: 24px;
+    --font-caption: 400 var(--font-size-caption) / var(--font-line-caption) var(--font-family-main);
+    --font-size-departments: 16px;
+    --font-line-departments: 20px;
+    --font-departments: 500 var(--font-size-departments) / var(--font-line-departments) var(--font-family-main);
+    --font-line-digits-sm: 80px;
+    --font-digits-sm: 500 var(--font-size-digits-sm) / var(--font-line-digits-sm) var(--font-family-main);
+    --font-size-big-md: 72px;
+    --font-line-big-md: 80px;
+    --font-big-md: 700 var(--font-size-big-md) / var(--font-line-big-md) var(--font-family-main);
+    --font-size-h1-xxl: 72px;
+    --font-line-h1-xxl: 80px;
+    --font-h1-xxl: 500 var(--font-size-h1-xxl) / var(--font-line-h1-xxl) var(--font-family-main);
+    --font-size-h1-sm: 48px;
+    --font-line-h1-sm: 56px;
+    --font-h1-sm: 500 var(--font-size-h1-sm) / var(--font-line-h1-sm) var(--font-family-main);
+    --font-size-h2-xxl: 52px;
+    --font-line-h2-xxl: 60px;
+    --font-h2-xxl: 500 var(--font-size-h2-xxl) / var(--font-line-h2-xxl) var(--font-family-main);
+    --font-size-h2-md: 40px;
+    --font-line-h2-md: 48px;
+    --font-h2-md: 500 var(--font-size-h2-md) / var(--font-line-h2-md) var(--font-family-main);
+    --font-size-h2-sm: 32px;
+    --font-line-h2-sm: 40px;
+    --font-h2-sm: 500 var(--font-size-h2-sm) / var(--font-line-h2-sm) var(--font-family-main);
+    --font-size-h3-md: 32px;
+    --font-line-h3-md: 40px;
+    --font-h3-md: 500 var(--font-size-h3-md) / var(--font-line-h3-md) var(--font-family-main);
+    --font-size-h4-xxl: 32px;
+    --font-line-h4-xxl: 40px;
+    --font-h4-xxl: 500 var(--font-size-h4-xxl) / var(--font-line-h4-xxl) var(--font-family-main);
+    --font-size-h4-md: 24px;
+    --font-line-h4-md: 32px;
+    --font-h4-md: 500 var(--font-size-h4-md) / var(--font-line-h4-md) var(--font-family-main);
+    --font-size-h4-sm: 20px;
+    --font-line-h4-sm: 28px;
+    --font-h4-sm: 500 var(--font-size-h4-sm) / var(--font-line-h4-sm) var(--font-family-main);
+    --font-size-navigation-sm: 16px;
+    --font-line-navigation-sm: 24px;
+    --font-navigator-sm: 500 var(--font-size-navigation-sm) / var(--font-line-navigation-sm) var(--font-family-main);
+    --font-size-links-sm: 16px;
+    --font-line-links-sm: 24px;
+    --font-links-sm: 500 var(--font-size-links-sm) / var(--font-line-links-sm) var(--font-family-main);
+    --font-size-text-sm: 16px;
+    --font-line-text-sm: 24px;
+    --font-text-sm: 400 var(--font-size-text-sm) / var(--font-line-text-sm) var(--font-family-main);
+    --font-text-bold-sm: 500 var(--font-size-text-sm) / var(--font-line-text-sm) var(--font-family-main);
+    --hover-translate-time: 0.5s;
+    --hover-translate-icon-time: 1s;
+    --hover-image-scale: 1.1;
+    --click-button-scale: 0.96;
 
+    // adaptive
+    --sm: 576px;
+    --md: 769px;
+    --lg: 992px;
+    --xl: 1200px;
+    --xxl: 1500px;
+  }
 
-  --box-shadow-hover: #ffffff59 0 0 15px;
-
-  // z-index
-  --z-index-blocks: 10;
-  --z-index-input-range: 99999;
-
-  // fonts
-
-  --font-family-main: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-size-h1: 96px;
-  --font-line-h1: 108px;
-  --font-h1: var(--font-size-h1) / var(--font-line-h1) var(--font-family-main);
-  --font-size-h2: 72px;
-  --font-line-h2: 80px;
-  --font-h2: var(--font-size-h2) / var(--font-line-h2) var(--font-family-main);
-  --font-size-h3: 44px;
-  --font-line-h3: 52px;
-  --font-h3: var(--font-size-h3) / var(--font-line-h3) var(--font-family-main);
-  --font-size-h4: 36px;
-  --font-line-h4: 44px;
-  --font-h3: var(--font-size-h4) / var(--font-line-h4) var(--font-family-main);
-  --font-size-navigation: 24px;
-  --font-line-navigation: 32px;
-  --font-navigator: var(--font-size-navigation) / var(--font-line-navigation) var(--font-family-main);
-  --font-size-links: 20px;
-  --font-line-links: 24px;
-  --font-links: var(--font-size-links) / var(--font-line-links) var(--font-family-main);
-  --font-size-text: 20px;
-  --font-line-text: 32px;
-  --font-text: var(--font-size-text) / var(--font-line-text) var(--font-family-main);
-}

@@ -1,22 +1,17 @@
-@import 'variables.scss';
-@import 'reset.scss';
-@import 'global.scss';
+@import url('variables.scss');
+@import url('reset.scss');
+@import url('global.scss');
 
 :root {
   font-family: var(--font-family-main);
   line-height: 1.5;
   font-weight: 400;
-
   background-color: var(--bg-around);
-
 }
 
 .active {
   font-style: 53px;
 }
-
-
-
 
 #root {
   width: 100%;
@@ -38,9 +33,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -49,11 +46,13 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #fff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }

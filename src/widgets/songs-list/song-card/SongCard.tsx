@@ -9,6 +9,7 @@ import { DownloadButton } from '@/features/download-button';
 import { getFullDate } from '@/shared/lib/date/getFullDate';
 import { ISong } from '@/shared/types/types';
 import { Stack } from '@/shared/ui/stack';
+import { TextComponent } from '@/shared/ui/text-component';
 
 import styles from './SongCard.module.scss';
 
@@ -52,7 +53,7 @@ const SongCard: FC<SongCardProps> = ({
       </div>
       <SongTitle name={name} artist={artist} />
       <Stack direction="column" align="end">
-        <p>{getFullDate(date)}</p>
+        <TextComponent text={getFullDate(date)} size="text" />
         <DownloadButton type="button" url={songUrl} fileName={`${artist} - ${name}`} />
       </Stack>
     </article>

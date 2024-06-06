@@ -1,15 +1,8 @@
-.title, .text {
-  color: var(--text-base)
-}
-.error {
-  .title, .text {
-    color: var(--text-error)
-  }
-}
+$colors: base, secondary, bright-accent, error;
 
-.accent {
-  .title, .text {
-    color: var(--text-bright-accent)
+@each $color in $colors {
+  .#{$color} {
+    color: var(--text-#{$color});
   }
 }
 
@@ -26,6 +19,28 @@ $sizes: (
   'size-h4': var(--font-h4),
 );
 
+$sizes-xxl: (
+  'h1': var(--font-h1-xxl),
+  'h2': var(--font-h2-xxl),
+  'h4': var(--font-h4-xxl),
+);
+$sizes-md: (
+  'big': var(--font-big-md),
+  'h2': var(--font-h2-md),
+  'h3': var(--font-h3-md),
+  'h4': var(--font-h4-md),
+);
+$sizes-sm: (
+  'digits': var(--font-digits-sm),
+  'h1': var(--font-h1-sm),
+  'h2': var(--font-h2-sm),
+  'h4': var(--font-h4-sm),
+  'navigation': var(--font-navigation-sm),
+  'links': var(--font-links-sm),
+  'text': var(--font-text-sm),
+  'text-bold': var(--font-text-bold-sm),
+);
+
 @each $property, $value in $aligns {
   .#{$property} {
     text-align: #{$value};
@@ -35,17 +50,42 @@ $sizes: (
 @each $size, $font in $sizes {
   .#{$size} {
     .title {
-      font: #{$font}
+      font: #{$font};
     }
 
     .text {
-      font: var(--font-text)
+      font: var(--font-text);
     }
   }
 }
 
 .bold {
-  .title, .text {
+  .title,
+  .text {
     font-weight: 700;
+  }
+}
+
+@include xxl {
+  @each $size, $font in $sizes-xxl {
+    .#{$size} {
+      font: #{$font};
+    }
+  }
+}
+
+@include md {
+  @each $size, $font in $sizes-md {
+    .#{$size} {
+      font: #{$font};
+    }
+  }
+}
+
+@include sm {
+  @each $size, $font in $sizes-sm {
+    .#{$size} {
+      font: #{$font};
+    }
   }
 }

@@ -13,3 +13,33 @@
 @mixin clickButton {
   transform: scale(0.9);
 }
+
+@mixin xxl {
+  @media (width <= 1500px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (width <= 1200px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (width <= 992px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (width <= 769px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (width <= 576px) {
+    @content;
+  }
+}

@@ -1,5 +1,4 @@
 .volume {
-  // grid-area: volume;
   position: relative;
   cursor: pointer;
 }
@@ -46,8 +45,7 @@ $volumeLevel: 150px;
   height: var(--volume-var);
   border-radius: 4px;
   background: var(--tracker-color);
-  box-shadow: 0 0 8px 2px rgba(135,223,228,1);
-
+  box-shadow: 0 0 8px 2px rgb(135 223 228 / 100%);
 }
 
 .dotVolume {
@@ -57,7 +55,6 @@ $volumeLevel: 150px;
   width: 15px;
   height: 15px;
   background: var(--tracker-color);
-  box-shadow: 0 0 8px 2px rgba(135,223,228,1);
-
+  box-shadow: 0 0 8px 2px rgb(135 223 228 / 100%);
   border-radius: 50%;
 }
