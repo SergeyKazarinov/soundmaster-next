@@ -1,7 +1,8 @@
 import { FC } from 'react';
 
-import { CategoriesPage } from '@/pages/categories-page';
 import { ISearchParams } from '@/shared/types/types';
+
+import { CategoriesPage } from '@/views/categories-page';
 
 interface CategoryPageProps {
   params: { category: string };

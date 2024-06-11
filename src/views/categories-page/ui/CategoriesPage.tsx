@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC } from 'react';
 
 import { CategoryList } from '@/entities/category';
 import { categoryAPI } from '@/shared/api/api';
@@ -36,4 +36,4 @@ const CategoriesPage: FC<CategoriesPageProps> = async ({ categoryPath, searchPar
   );
 };
 
-export default memo(CategoriesPage);
+export default CategoriesPage;

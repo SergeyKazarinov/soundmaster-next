@@ -1,8 +1,9 @@
-import { FC, memo } from 'react';
+import { FC } from 'react';
 
-import { StylePage } from '@/pages/style-page';
 import { songsAPI } from '@/shared/api/api';
 import { ISearchParams, ISongsResolve } from '@/shared/types/types';
+
+import { StylePage } from '@/views/style-page';
 
 interface StylesPageProps {
   params: { category: string; style: string };
@@ -19,4 +20,4 @@ const StylesPage: FC<StylesPageProps> = async ({ params, searchParams }) => {
   return <StylePage songsResolve={songsResolve} searchParams={searchParams} />;
 };
 
-export default memo(StylesPage);
+export default StylesPage;
